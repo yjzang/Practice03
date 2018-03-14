@@ -22,10 +22,14 @@ public class BookShop {
         displayBookInfo(books);
         
         Scanner scanner = new Scanner(System.in);
-        System.out.print("대여 하고 싶은 책의 번호를 입력하세요:");
+        System.out.print(" 대여 하고 싶은 책의 번호를 입력하세요: ");
         int num = scanner.nextInt();
+        books[num-1].rent(num);
         scanner.close();
 
+       
+         
+        
         // (1) 입력된 번호에 맞는 책을 찾아 대여 되었음(상태코드=0)을 체크 합니다.
        
 
@@ -36,5 +40,13 @@ public class BookShop {
     //(2)전달받은 배열을 모두 출력하는 메소드
     private static void displayBookInfo(Book[] books) {
         //코드작성
+    	for(int i=0;i<books.length;i++) {
+    	        
+    	System.out.print(books[i].getBookNo() +" 책 제 목:"+books[i].getTitle()+", 작가:"+books[i].getAuthor()+", 대여 유무: " );
+    	books[i].print();
+    	System.out.println(" ");
+    	}
     }
 }
+
+	//	getter는 private된 다른 클래스의 변수값을 불러올때 쓰는 메쏘드이다.
